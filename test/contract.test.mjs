@@ -2,6 +2,9 @@
 // lives only in the monorepo (keys/license-private.pem); run them there.
 // Mirror note: tests that run a script from the monorepo's scripts/ directory are
 // skipped here. That directory is not part of a server folder; run them in the monorepo.
+// Mirror note: tests that read another server's source out of the monorepo are
+// skipped here. A mirror holds one server and vendors a sibling's dist, never its
+// src, so there is nothing to read; run them in the monorepo.
 // Contract suite for cash-book. Generated shape, mechanical assertions only.
 //
 // Asserts the invariants of servers/cash-book/SPEC.md that a test can check without
@@ -220,7 +223,7 @@ test.skip("no sibling store is ever written, on any tool", async (t) => {
   }
 });
 
-test("the seeded record shapes still match what the sibling servers declare", async () => {
+test.skip("the seeded record shapes still match what the sibling servers declare", async () => {
   // If a sibling renames a field, this suite's seeds would silently stop reaching the code
   // that reads them, and every figure would quietly become zero while still balancing.
   const need = {

@@ -2,19 +2,18 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.theluckystrike/cash-book",
   "description": "One double-entry ledger derived from your invoices, bank, expenses, deposits and assets.",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "repository": {
     "url": "https://github.com/theluckystrike/mcp-servers",
     "source": "github",
     "subfolder": "servers/cash-book"
   },
-  "websiteUrl": "https://mcp.zovo.one/buy/cash-book",
+  "websiteUrl": "https://mcp.zovo.one/s/cash-book",
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.20.0/cash-book.mcpb",
-      "version": "0.20.0",
-      "fileSha256": "8a15ba9d84a73fcee7c2cfdaa3ea8f8c96bb1030dd2ef55df74aa38668993756",
+      "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/cash-book.mcpb",
+      "version": "0.21.0",
       "transport": {
         "type": "stdio"
       },
@@ -25,7 +24,8 @@
           "isRequired": false,
           "isSecret": true
         }
-      ]
+      ],
+      "fileSha256": "5a0751e94dca671bddcc0e7c010983421cb17bb83c24c9071b3185908df6e611"
     }
   ],
   "remotes": [
