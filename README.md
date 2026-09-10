@@ -2,7 +2,7 @@
 
 <!-- mirror-seo:start -->
 
-**MCP server for double entry bookkeeping and a cash book general ledger.** One double-entry ledger derived from the books you already keep, proved to the minor unit.
+**MCP server for double entry bookkeeping and a cash book general ledger for a small business.** One double-entry ledger derived from the books you already keep, proved to the minor unit.
 
 Works with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine, or hosted with no install.
 
