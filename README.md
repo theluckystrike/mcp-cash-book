@@ -1,13 +1,45 @@
 # mcp-cash-book
 
+<!-- mirror-seo:start -->
+
+**MCP server for double entry bookkeeping and a cash book general ledger.** One double-entry ledger derived from the books you already keep, proved to the minor unit.
+
+Works with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine, or hosted with no install.
+
+## Install
+
+**Hosted, nothing to install.** Point an MCP client at `https://mcp.zovo.one/mcp/cash-book` over streamable-http and send `Authorization: Bearer <token>`, where the token is a Pro key or a free anonymous one from <https://mcp.zovo.one/mcp/token>.
+
+**Claude Desktop, one click.** Download `cash-book.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it.
+
+**From source.** The mirror is self-contained: every `@theluckystrike/*` dependency is vendored, so a fresh clone builds with no extra setup.
+
+```sh
+git clone https://github.com/theluckystrike/mcp-cash-book.git
+cd mcp-cash-book
+npm install && npm run build
+```
+
+Then point your client at the built entry point:
+
+```json
+{
+  "mcpServers": {
+    "cash-book": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-cash-book/dist/index.js"]
+    }
+  }
+}
+```
+
+> `@theluckystrike/mcp-cash-book` is **not published on npm yet**, so an `npx -y @theluckystrike/mcp-cash-book` command will fail. The three paths above are the working ones and each is exercised by CI.
+
 ![cash-book demo](https://raw.githubusercontent.com/theluckystrike/mcp-servers/main/assets/demo-cash-book.gif)
-
-**One-click install:** download `cash-book.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it in Claude Desktop.
-
-**Hosted endpoint (no install):** `https://mcp.zovo.one/mcp/cash-book` (streamable-http; send `Authorization: Bearer <Pro key or anonymous token from https://mcp.zovo.one/mcp/token>`).
 
 Read-only mirror of [mcp-servers/servers/cash-book](https://github.com/theluckystrike/mcp-servers/tree/main/servers/cash-book). See [MIRROR.md](MIRROR.md).
 
+<!-- mirror-seo:end -->
 
 One double-entry ledger over the books you already keep. It reads your invoices, credit notes, purchase orders, deposits, expenses, bank import and fixed asset register, and derives a debit and a credit for every movement in a period: revenue and VAT output from the invoices, receivables and the payments that clear them, deposits held as the liability they are, expenses by category with the VAT taken out of the gross, fixed assets and their monthly depreciation. It proves the trial balance sums to zero to the minor unit, and when it does not it names the document whose own figures do not add up. It writes nothing back into any of those books, and there is no way to type an entry into it: every line carries the server, the document id and the date it came from, so any figure can be walked back to the page it was printed on.
 
