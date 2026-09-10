@@ -1,0 +1,22 @@
+{
+  "name": "mcp-cash-book",
+  "version": "0.21.0",
+  "description": "MCP server for double entry bookkeeping and a cash book general ledger for a small business. One double-entry ledger derived from the books you already keep, proved to the minor unit.",
+  "settings": [
+    {
+      "name": "mcp.zovo.one token",
+      "description": "A free anonymous token from https://mcp.zovo.one/mcp/token, or your Pro key. One token is one data space, and it is refreshed for another 30 days on every write.",
+      "envVar": "ZOVO_MCP_TOKEN",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "cash-book": {
+      "httpUrl": "https://mcp.zovo.one/mcp/cash-book",
+      "headers": {
+        "Authorization": "Bearer ${ZOVO_MCP_TOKEN}"
+      },
+      "description": "One double-entry ledger derived from the books you already keep, proved to the minor unit."
+    }
+  }
+}
